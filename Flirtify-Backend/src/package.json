@@ -1,0 +1,29 @@
+{
+  "name": "Flirtify-Backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "keywords": [
+    "nodejs",
+    "javascript"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "DEVtindernodejs": "file:",
+    "express": "^4.19.2",
+    "FL": "file:",
+    "Flirtify-Backend": "file:",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.8.4",
+    "socket.io": "^4.8.1",
+    "validator": "^13.12.0"
+  }
+}
