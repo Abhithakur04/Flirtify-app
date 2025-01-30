@@ -132,7 +132,7 @@ requestId: The ID of the connection request to review.
 
 - **Usage**: Set up a WebSocket connection to the server, and messages can be sent/received between connected users.
 
-- **Endpoint**: `ws://<server_url>/chat`
+
 
 ### Events:
 - **connect**: The WebSocket connection is established.
