@@ -4,6 +4,7 @@ const connectDB=require("./config/database");
 const cookieParser=require("cookie-parser");
 const cors=require("cors");
 const http=require("http");
+const PORT=process.env.PORT;
 
 //use this middleware to solve CORS error and we use origin for frontend to tell from where request
 //  is made and credentails true so that when it send token the browser store in the application
@@ -40,7 +41,7 @@ initializeSocket(server);
   connectDB()
   .then(()=>{
     console.log("Succesfuly connect to database");
-     server.listen(4000,()=>{
+     server.listen(PORT,()=>{
         console.log("Successfully server start");
     });
   })
