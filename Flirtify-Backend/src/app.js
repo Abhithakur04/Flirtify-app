@@ -4,7 +4,7 @@ const connectDB=require("./config/database");
 const cookieParser=require("cookie-parser");
 const cors=require("cors");
 const http=require("http");
-const PORT=process.env.PORT;
+const PORT=process.env.PORT || 5000;
 
 //use this middleware to solve CORS error and we use origin for frontend to tell from where request
 //  is made and credentails true so that when it send token the browser store in the application
