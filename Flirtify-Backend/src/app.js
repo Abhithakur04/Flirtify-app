@@ -10,7 +10,7 @@ const PORT=process.env.PORT || 5000;
 //  is made and credentails true so that when it send token the browser store in the application
 app.use(
   cors({
-    origin:"http://localhost:5173",
+    origin:"https://flirtify-app.vercel.app",
     credentials:true,
   })
 );
