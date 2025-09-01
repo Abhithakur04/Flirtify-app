@@ -11,6 +11,8 @@ import Connections from "./components/Connections";
 import Requests from "./components/Requests";
 import Chat from "./components/Chat";
 import Signup from "./components/Signup";
+import AdminDashboard from "./components/AdminDashboard";
+import ProtectedAdminRoute from "./components/ProtectedAdminRoute"; 
 
 const App = () => {
   return (
@@ -26,6 +28,14 @@ const App = () => {
               <Route path="/connections" element={<Connections />} />
               <Route path="/requests" element={<Requests />} />
               <Route path="/chat/:targetUserId" element={<Chat/>} />
+             <Route
+  path="/admin-dashboard"
+  element={
+    <ProtectedAdminRoute>
+      <AdminDashboard />
+    </ProtectedAdminRoute>
+  }
+/>
             </Route>
           </Routes>
         </BrowserRouter>
