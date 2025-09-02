@@ -49,6 +49,11 @@
     photoUrl:{
         type:String
        },
+       role: {
+  type: String,
+  enum: ['user', 'admin'],
+  default: 'user'
+},
        about:{
         type:String,
         default:"This is default section"
@@ -62,7 +67,7 @@
    //make a helper function when a user instance make then a token created
    userSchema.methods.getJWT=async function(){
      user=this;
-    const token=await jwt.sign({_id:user._id},"Password@123",{expiresIn:"1d"});   
+    const token=await jwt.sign({_id:user._id,role: user.role},"Password@123",{expiresIn:"1d"});   
     return token;
    }
    userSchema.methods.validatePassword=async function (userEnterPassword) {
