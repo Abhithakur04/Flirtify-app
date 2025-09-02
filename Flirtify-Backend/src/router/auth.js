@@ -4,18 +4,25 @@ const authRouter=express.Router();
 const {signupValidation}=require("../utils/validation");
 const bcrypt=require("bcrypt");
 const User=require("../models/user");
+
  //signup 
 authRouter.post("/signup",async(req,res)=>{
     try{
         //validation 
-        signupValidation(req);
-      const {firstName,lastName,emailId,password}=req.body;
-      const hashpassword=await bcrypt.hash(password,10);
-      //instance of user model
-        const user=new User({firstName,
-          lastName,
-          emailId,
-          password:hashpassword});
+        signupValidation(req);      
+const { firstName, lastName, emailId, password } = req.body; 
+
+    const hashpassword = await bcrypt.hash(password, 10);
+
+    // instance of user model
+    const user = new User({
+      firstName,
+      lastName,
+      emailId,
+      password: hashpassword,
+  
+    });
+
         const savedUser=await user.save();
         const token=await savedUser.getJWT();
         //setting cookie so that client/browser will store the token in the frontend 
@@ -41,7 +48,8 @@ authRouter.post("/login",async(req,res)=>{
         //setting cookie
           res.cookie("token",token,{
             expires:new Date(Date.now()+8*360000)});
-           res.send(user);
+          const { _id, firstName, lastName, emailId, role } = user;
+          res.json({ _id, firstName, lastName, emailId, role });
         }
         else{
           throw new Error("Invalid credential");
