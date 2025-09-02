@@ -6,6 +6,7 @@ const User=require("../models/user")
 
 const USER_SAFE_DATA="firstName lastName age gender";
 
+//to display all the request that are sent to me
 userRouter.get("/user/requests/recieved",userAuth,
     async(req,res)=>{
         try{
@@ -20,7 +21,7 @@ userRouter.get("/user/requests/recieved",userAuth,
         }
     }
 )
-
+//to display my connection/friends
 userRouter.get("/user/connection",userAuth,async(req,res)=>{
     try{
         const loggedInUser=req.user;
@@ -45,6 +46,8 @@ userRouter.get("/user/connection",userAuth,async(req,res)=>{
         return res.status(404).send("Error! "+err);
     }
 })
+
+//to display all the random users(excluded my friends,i ignored someone or reject someone)
 userRouter.get("/feed",userAuth,async(req,res)=>{
   try{
     // feed Api not contain 
