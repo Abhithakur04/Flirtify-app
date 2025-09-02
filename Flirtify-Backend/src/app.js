@@ -17,14 +17,19 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
+const uploadRouter = require("./router/uploadRouter");
 const authRouter=require("./router/auth");
 const profileRouter = require("./router/profile");
 const requestRouter = require("./router/request");
 const userRouter =require("./router/user");
 const chatRouter=require("./router/chat");
+const adminRouter = require("./router/adminRouter");
 const { initializeSocket } = require("./utils/socket");
 
 
+app.use('/uploads', express.static('uploads'));
+app.use("/api", uploadRouter);
+app.use("/admin", adminRouter);
 app.use("/",authRouter);
 app.use("/" ,profileRouter);
 app.use("/",requestRouter);
@@ -34,9 +39,6 @@ app.use("/",chatRouter);
 const server=http.createServer(app);
 
 initializeSocket(server);
-
-
-
  //making connection with cluster /database
   connectDB()
   .then(()=>{
