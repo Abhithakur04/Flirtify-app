@@ -21,7 +21,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="navbar bg-white shadow-md px-4">
+   <div className="navbar bg-base-200 shadow-md px-4">
   <div className="flex-1">
     <Link to="/" className="btn btn-ghost text-xl text-pink-500">
       💘Flirtify
@@ -30,7 +30,7 @@ const NavBar = () => {
 
   {user ? (
     <div className="flex-none gap-4 items-center">
-      <span className="hidden md:block font-medium text-sm text-gray-700">
+      <span className="font-medium text-sm text-gray-700 dark:text-white">
         Welcome, <span className="font-semibold">{user.firstName}</span>
       </span>
 
@@ -39,8 +39,9 @@ const NavBar = () => {
           <div className="w-10 rounded-full">
             <img
               src={
-                user.photo ? `${BASE_URL}${user.photo}`
-                : "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-image-182145777.jpg"
+                user.photo
+                  ? `${BASE_URL}${user.photo}`
+                  : "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-image-182145777.jpg"
               }
               alt="Profile"
             />
@@ -48,9 +49,9 @@ const NavBar = () => {
         </div>
         <ul
           tabIndex={0}
-          className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-white rounded-box w-52"
+          className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
         >
-          <li><Link to="/profile" className="justify-between">Profile <span className="badge">New</span></Link></li>
+          <li><Link to="/profile">Profile</Link></li>
           <li><Link to="/connections">Connections</Link></li>
           <li><Link to="/requests">Requests</Link></li>
           <li><a onClick={handleLogout}>Logout</a></li>
@@ -64,6 +65,7 @@ const NavBar = () => {
     </div>
   )}
 </div>
+
 
   );
 };
