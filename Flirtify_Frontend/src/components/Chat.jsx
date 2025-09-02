@@ -1,4 +1,4 @@
-import React, { useEffect, useState ,useRef} from "react";
+ximport React, { useEffect, useState ,useRef} from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { createSocketConnection } from "../utils/socket";
 import { useSelector } from "react-redux";
@@ -143,13 +143,13 @@ const Chat = () => {
      
       <div className="p-5 border-t border-gray-600 flex items-center gap-3 bg-gray-800 rounded-b-xl">
   <input
-    className="flex-1 border border-gray-500 text-white bg-gray-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+    className=" sd: mx-[-1px] flex-1 border border-gray-500 text-white bg-gray-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
     value={newMessage}
     onChange={(e) => setNewMessage(e.target.value)}
     placeholder="Type your message..."
   />
   <button
-    className="btn btn-primary text-white bg-blue-500 hover:bg-blue-600 rounded-full p-3 transition-colors"
+    className="btn btn-primary text-white bg-blue-500 hover:bg-blue-600 rounded-full p-1 md:p-3  transition-colors"
     onClick={sendMessage}
   >
     Send
