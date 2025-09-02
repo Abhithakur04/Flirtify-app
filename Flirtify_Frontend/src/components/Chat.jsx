@@ -143,7 +143,7 @@ const Chat = () => {
      
       <div className="p-5 border-t border-gray-600 flex items-center gap-3 bg-gray-800 rounded-b-xl">
   <input
-    className=" sd: mx-[-1px] flex-1 border border-gray-500 text-white bg-gray-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+    className=" sm: mx-[-1px] flex-1 border border-gray-500 text-white bg-gray-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
     value={newMessage}
     onChange={(e) => setNewMessage(e.target.value)}
     placeholder="Type your message..."
