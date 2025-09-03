@@ -26,14 +26,8 @@ const Connections = () => {
   if (connections.length === 0) return <h1>No Connections Found</h1>;
 
   return (
-
-    <div className="my-2  min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-8">
-  <h1 className="font-bold text-yellow-400 text-5xl text-center mb-6">Connections</h1>
-
-  {connections.map((connection) => {
-    const { _id, firstName, lastName, photoUrl, age, gender, about } = connection;
-    return (
-       <div className="my-2 min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-4">
+   
+  <div className="my-2 min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-4">
   <h1 className="font-bold text-yellow-400 text-3xl md:text-5xl text-center mb-6">
     Connections
   </h1>
