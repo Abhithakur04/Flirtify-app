@@ -52,8 +52,13 @@ authRouter.post("/login",async(req,res)=>{
         if(isPasswordValid){     
           const token=await user.getJWT();
         //setting cookie
-          res.cookie("token",token,{
-            expires:new Date(Date.now()+8*360000)});
+         res.cookie("token", token, {
+  httpOnly: true,         // prevent JS from accessing cookie
+  secure: true,           // required for cross-site HTTPS
+  sameSite: "none",       // allow cross-domain
+  maxAge: 8 * 360000      // cookie expiry
+});
+
           const { _id, firstName, lastName, emailId, role } = user;
           res.json({ _id, firstName, lastName, emailId, role });
         }
@@ -68,9 +73,15 @@ authRouter.post("/login",async(req,res)=>{
 //logout
 authRouter.post("/logout",async(req,res)=>{
     //setting token as null and expires the cookie
-  res.cookie("token",null,{
-    expires:new Date(Date.now())
-  })
-  res.send("Logout Succesfully");
+authRouter.post("/logout", async (req, res) => {
+  res.cookie("token", "", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+    expires: new Date(0)   // expires immediately
+  });
+  res.send("Logout Successfully");
+});
+
 })
 module.exports=authRouter;
