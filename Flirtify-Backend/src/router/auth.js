@@ -26,8 +26,14 @@ const { firstName, lastName, emailId, password } = req.body;
         const savedUser=await user.save();
         const token=await savedUser.getJWT();
         //setting cookie so that client/browser will store the token in the frontend 
-          res.cookie("token",token,{
-            expires:new Date(Date.now()+8*360000)});
+          
+     res.cookie("token", token, {
+  httpOnly: true,         // prevent JS from accessing cookie
+  secure: true,           // required for cross-site HTTPS
+  sameSite: "none",       // allow cross-domain
+  maxAge: 8 * 360000      // cookie expiry
+});
+
          
          res.json({message:"succesfuly registered",data:savedUser});
       }
