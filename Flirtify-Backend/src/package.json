@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
   },
   "keywords": [
     "nodejs",
@@ -17,12 +17,11 @@
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
-    "DEVtindernodejs": "file:",
     "express": "^4.19.2",
-    "FL": "file:",
-    "Flirtify-Backend": "file:",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.4",
+    "multer": "^2.0.0",
+    "nodemailer": "^7.0.3",
     "socket.io": "^4.8.1",
     "validator": "^13.12.0"
   }
