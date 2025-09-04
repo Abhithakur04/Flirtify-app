@@ -71,9 +71,9 @@ authRouter.post("/login",async(req,res)=>{
       }
 });
 //logout
-authRouter.post("/logout",async(req,res)=>{
-    //setting token as null and expires the cookie
+    
 authRouter.post("/logout", async (req, res) => {
+ //setting token as null and expires the cookie
   res.cookie("token", "", {
     httpOnly: true,
     secure: true,
